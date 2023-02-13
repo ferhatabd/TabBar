@@ -31,11 +31,11 @@ struct ContentView: View {
         case second
         case third
         
-        var icon: String {
+        var icon: AssetType {
             switch self {
-                case .first: return "house"
-                case .second: return "magnifyingglass"
-                case .third: return "person"
+            case .first: return .system(name: "house")
+            case .second: return .system(name: "magnifyingglass")
+            case .third: return .system(name: "person")
             }
         }
         

@@ -30,10 +30,27 @@ import SwiftUI
  items of `UITabBar` and used in `TabBar` by default.
  */
 public struct DefaultTabItemStyle: TabItemStyle {
-    public func tabItem(icon: String, selectedIcon: String, title: String, isSelected: Bool) -> some View {
+    public func tabItem(icon: AssetType, selectedIcon: AssetType, title: String, isSelected: Bool) -> some View {
         VStack(spacing: 5.0) {
-            Image(systemName: icon)
-                .renderingMode(.template)
+            switch icon {
+            case .system(let name) :
+                Image(systemName: name)
+                    .renderingMode(.template)
+            case .remote(let url):
+                AsyncImage(url: url, scale: 1) { image in
+                    image
+                        .renderingMode(.template)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                    
+                    
+                } placeholder: {
+                    Circle()
+                        .fill()
+                        .foregroundColor(.gray)
+                }
+
+            }
             
             Text(title)
                 .font(.system(size: 10.0, weight: .medium))
