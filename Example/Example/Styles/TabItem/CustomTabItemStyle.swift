@@ -39,6 +39,9 @@ struct CustomTabItemStyle: TabItemStyle {
                 Image(systemName: name)
                     .foregroundColor(isSelected ? .white : Color("color.tab.item.foreground"))
                     .frame(width: 32.0, height: 32.0)
+            case let .asset(name, bundle):
+                Image(name, bundle: bundle)
+                    .renderingMode(.template)
             case .remote(let url):
                 AsyncImage(url: url) { image in
                     image
