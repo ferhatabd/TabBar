@@ -36,9 +36,6 @@ public struct DefaultTabItemStyle: TabItemStyle {
             case .system(let name) :
                 Image(systemName: name)
                     .renderingMode(.template)
-            case let .asset(name, bundle):
-                Image(name, bundle: bundle)
-                    .renderingMode(.template)
             case .remote(let url):
                 AsyncImage(url: url, scale: 1) { image in
                     image

@@ -28,7 +28,6 @@ import Foundation
 /// - `remote`: Asset downloaded from a local URL
 public enum AssetType {
     case system(name: String)
-    case asset(name: String, bundle: Bundle)
     case remote(url: URL?)
 }
 
