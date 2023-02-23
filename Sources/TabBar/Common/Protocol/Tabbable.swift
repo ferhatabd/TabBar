@@ -22,12 +22,14 @@
 //  SOFTWARE.
 
 import Foundation
+import SwiftUI
 
 /// Icon types
 /// - `system`: Loads a system image name
 /// - `remote`: Asset downloaded from a local URL
 public enum AssetType {
     case system(name: String)
+    case image(Image)
     case remote(url: URL?)
 }
 
