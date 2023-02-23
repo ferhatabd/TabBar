@@ -29,6 +29,7 @@ import SwiftUI
 /// - `remote`: Asset downloaded from a local URL
 public enum AssetType {
     case system(name: String)
+    case asset(String, Bundle)
     case image(Image)
     case remote(url: URL?)
 }

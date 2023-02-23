@@ -40,6 +40,10 @@ public struct DefaultTabItemStyle: TabItemStyle {
                 image
                     .resizable()
                     .renderingMode(.template)
+            case let .asset(name, bundle):
+                Image(name, bundle: bundle)
+                    .resizable()
+                    .renderingMode(.template)
             case .remote(let url):
                 AsyncImage(url: url, scale: 1) { image in
                     image
